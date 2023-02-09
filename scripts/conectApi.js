@@ -8,3 +8,4 @@ async function conectApi(url){
     console.log(quiz)
 }
 
+export {quiz}

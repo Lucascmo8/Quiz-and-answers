@@ -10,7 +10,9 @@ body{
     /* background-attachment:fixed; */
     /* background-position: center; */
     /* background-size: cover; */
-    background-color: #373535;
+    /* background-color: #fff; */
+
+    background-color: #6e6e6e;
 }
 
 header{
@@ -22,11 +24,23 @@ header{
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
+header button{
+    background-color: #000;
+    border-radius: 8px;
+    padding: 8px;
+}
+
 main{
     display: flex;
     flex-direction: column;
     padding: 16px;
     margin-bottom: 66px;
+
+    margin-top: 32px;
+}
+
+h2{
+    text-align: center;
 }
 
 section{
@@ -36,6 +50,8 @@ section{
     align-items: center;
     padding: 16px;
     gap: 48px;
+    margin-top: 32px;
+    margin-bottom: 32px;
 }
 
 .radioModeQuiz{
@@ -48,24 +64,56 @@ section{
     line-height: 32px;
     padding: 10px;
     border-radius: 16px;
-    background-color: #0000ff;
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+    /* background-image: linear-gradient(45deg,#bd4aff 50%, #a200ff 50%); */
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     box-sizing: border-box;
+    text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.4);
 
     transition: 0.5s ease-in-out;
+}
+
+#labelEasy{
+    background-image: linear-gradient(45deg,#00c500 50%, #52b152 50%);
+}
+
+#labelMedium{
+    background-image: linear-gradient(45deg,#005cc5 50%, #5257b1 50%);
+}
+
+#labelHard{
+    background-image: linear-gradient(45deg,#c50000 50%, #b15252 50%);
+}
+
+#labelExtreme{
+    background-image: linear-gradient(45deg,#b5c500 50%, #b1b152 50%);
 }
 
 #modeEasy:checked ~#labelEasy,
 #modeMedium:checked ~#labelMedium,
 #modeHard:checked ~#labelHard,
 #modeExtreme:checked ~#labelExtreme{
-    background-color: #7b00ff;
+    box-shadow:1px 5px 4px #00c500a8;
     transform: scale(1.08);
 }
 
+#modeEasy:checked ~#labelEasy{
+    box-shadow:0px 0px 15px #00c500a8;
+}
+
+#modeMedium:checked ~#labelMedium{
+    box-shadow:0px 0px 15px #0014c5a8;
+}
+
+#modeHard:checked ~#labelHard{
+    box-shadow:0px 0px 15px #c50000a8;
+}
+
+#modeExtreme:checked ~#labelExtreme{
+    box-shadow:0px 0px 15px #b5c500a8;
+}
+
 .modeQuiz:hover,.modeQuiz:focus{
-    background-color:#a200ff ;
     transform: scale(1.02);
 }
 
@@ -91,13 +139,21 @@ footer{
     background-color: black;
 }
 
-#btnStart{
+#startBtn{
     padding: 16px;
-    width: 280px;
+    width: 180px;
     border-radius: 8px;
     border: none;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
     align-self: center;
-    background-color: green;
+    background-color: #008000;
     cursor: pointer;
+
+    transition: all 0.5s;
+}
+
+#startBtn:hover{
+    background-color: #00c500;
+    box-shadow: 0px 0px 15px #008000a8;
+    transform: scale(1.01);
 }
