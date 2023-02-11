@@ -1,34 +1,60 @@
 @media (max-width:630px) {
-    main{
+    main {
         flex-direction: column;
         gap: 16px;
         box-sizing: border-box;
-        margin-top: 140px;
     }
 
-    article{
+    #questionsSection,
+    #resultSection,
+    main {
+        margin-top: 144px;
+        width: 97vw;
+    }
+
+    article {
         top: 0;
         text-align: center;
         margin: 0;
         padding: 0;
     }
 
-    article h2{
+    article h2 {
         text-align: center;
         font-size: 48px;
     }
 
-    main section{
+    main section {
         width: 100%;
         margin-bottom: 28px;
         box-sizing: border-box;
     }
 
-    #startBtn{
+    #startBtn {
         width: 220px;
     }
 
-    .modeQuiz{
+    .modeQuiz {
         width: 220px;
+    }
+
+    #questionsSection>div>div {
+        flex-wrap: nowrap;
+        flex-direction: column;
+
+    }
+
+    #labelOption1,
+    #labelOption2,
+    #labelOption3,
+    #labelOption4 {
+        width: 100%;
+    }
+
+    #option1:checked~#labelOption1,
+    #option2:checked~#labelOption2,
+    #option3:checked~#labelOption3,
+    #option4:checked~#labelOption4 {
+        transform: scale(1.02);
     }
 }

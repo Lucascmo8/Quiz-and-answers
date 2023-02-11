@@ -66,7 +66,12 @@ async function shuffleAnswer() {
 }
 
 async function showQuestions() {
-    homePage.style.display = "none"
+    showAnimationHomePage()
+
+    await setTimeout(removeHomePage,1000)
+
+    setTimeout(showQuizSection,500)
+
 
     if (currentQuestion < amountOfQuestions) {
         shuffleAnswer()
@@ -74,22 +79,25 @@ async function showQuestions() {
             <h3>Question ${currentQuestion + 1}</h3>
             <div>
                 <h4>${quiz[currentQuestion].question}</h4>
-                <input type="radio" name="options" id="option1" value="${scrambledAnswers[0]}" class="radioOptionsQuiz">
-                <label for="option1" class="optionQuiz" id="labelOption1">${scrambledAnswers[0]}</label>
+                
+                <div>
+                    <input type="radio" name="options" id="option1" value="${scrambledAnswers[0]}" class="radioOptionsQuiz">
+                    <label for="option1" class="optionQuiz" id="labelOption1"><div><p>1</p></div><p class="textAnswers">${scrambledAnswers[0]}</p></label>
 
 
-                <input type="radio" name="options" id="option2" value="${scrambledAnswers[1]}" class="radioOptionsQuiz">
-                <label for="option2" class="optionQuiz" id="labelOption2">${scrambledAnswers[1]}</label>
+                    <input type="radio" name="options" id="option2" value="${scrambledAnswers[1]}" class="radioOptionsQuiz">
+                    <label for="option2" class="optionQuiz" id="labelOption2"><div><p>2</p></div><p class="textAnswers">${scrambledAnswers[1]}</p></label>
 
 
-                <input type="radio" name="options" id="option3" value="${scrambledAnswers[2]}" class="radioOptionsQuiz">
-                <label for="option3" class="optionQuiz" id="labelOption3">${scrambledAnswers[2]}</label>
+                    <input type="radio" name="options" id="option3" value="${scrambledAnswers[2]}" class="radioOptionsQuiz">
+                    <label for="option3" class="optionQuiz" id="labelOption3"><div><p>3</p></div><p class="textAnswers">${scrambledAnswers[2]}</p></label>
 
 
-                <input type="radio" name="options" id="option4" value="${scrambledAnswers[3]}" class="radioOptionsQuiz">
-                <label for="option4" class="optionQuiz" id="labelOption4">${scrambledAnswers[3]}</label>
+                    <input type="radio" name="options" id="option4" value="${scrambledAnswers[3]}" class="radioOptionsQuiz">
+                    <label for="option4" class="optionQuiz" id="labelOption4"><div><p>4</p></div><p class="textAnswers">${scrambledAnswers[3]}</p></label>
+                </div>    
             </div>
-            <button id="nextBtn">Next</button>`
+            <button id="nextBtn">Next</button>` 
     }
 
     let nextBtn = await document.getElementById("nextBtn")
@@ -97,11 +105,35 @@ async function showQuestions() {
         let answerOptionChecked = document.querySelector("input[name='options']:checked")
         correctCounter(answerOptionChecked.value)
         nextQuestion()
-        showQuestions()
+        if (currentQuestion < amountOfQuestions){
+            setTimeout(showQuestions,100)
+        }
+        removeQuizSection()
     })
 }
 
+function showAnimationHomePage(){
+    homePage.classList.add("animate__animated")
+    homePage.classList.add("animate__backOutDown")
+}
 
+function removeHomePage(){
+    homePage.classList.remove("animate__animated")
+    homePage.classList.remove("animate__backOutDown")
+    homePage.style.display = "none"
+}
+
+function showQuizSection(){
+    quizSection.style.display = "flex"
+    quizSection.classList.add("animate__animated")
+    quizSection.classList.add("animate__backInRight")
+}
+
+function removeQuizSection(){
+    quizSection.style.display = "none"
+    quizSection.classList.remove("animate__animated")
+    quizSection.classList.remove("animate__backInRight")
+}
 
 export {
     showQuestions,

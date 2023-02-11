@@ -1,0 +1,110 @@
+#questionsSection {
+    color: white;
+    width: 80vw;
+    text-align: center;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+#questionsSection h3 {
+    font-size: 14px;
+    text-align: left;
+    font-weight: lighter;
+}
+
+#questionsSection>div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: no-wrap;
+    width: 100%;
+    gap: 16px;
+}
+
+#questionsSection h4 {
+    box-sizing: border-box;
+    background-image: linear-gradient(225deg,#f0f1e4, #ffffff);
+    color: #000;
+    /* border: 4px solid white; */
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 0px 2px rgba(0, 0, 0, 0.4);
+}
+
+#questionsSection>div>div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2vw;
+}
+
+.radioOptionsQuiz {
+    display: none;
+}
+
+.optionQuiz {
+    box-sizing: border-box;
+    background-color: gray;
+    color: #fff;
+    width: 45%;
+    
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    transition: 0.5s ease-in-out;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 0px 2px rgba(0, 0, 0, 0.4);
+}
+
+#questionsSection .optionQuiz p {
+    padding: 10px;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+#questionsSection .optionQuiz div{
+    background-color:#00c500;
+    width: 20%;
+    height: 100%;
+    border-radius: 10px 0px 0px 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.textAnswers{
+    width: 80%;
+}
+
+#nextBtn {
+    background-color: #00c500;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bolder;
+    height: 40px;
+    width: 77vw;
+    box-sizing: border-box;
+    align-self: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 0px 2px rgba(0, 0, 0, 0.4);
+}
+
+.optionQuiz:hover,#nextBtn{
+    transform: scale(1.04);
+    cursor: pointer;
+    box-shadow: 0px 0px 15px #008000a8;
+}
+
+#option1:checked ~#labelOption1,
+#option2:checked ~#labelOption2,
+#option3:checked ~#labelOption3,
+#option4:checked ~#labelOption4{
+    background-color:#fff;
+    color: #000;
+    transform: scale(1.08);
+}

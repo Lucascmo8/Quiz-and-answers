@@ -5,6 +5,10 @@
 }
 body{
     background-color: rgb(19, 12, 87);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 header{
@@ -34,9 +38,21 @@ header button{
 main{
     display: flex;
     padding: 16px;
+    width: 98vw;
+    box-sizing: border-box;
     /* margin-bottom: 66px; */
     justify-content: space-between;
-    margin-top: 72px;
+}
+
+#questionsSection,
+#resultSection,
+main{
+    margin-top: 78px;
+}
+
+#questionsSection,
+#resultSection{
+    display: none;
 }
 
 article{
@@ -110,19 +126,19 @@ main section{
 }
 
 #labelEasy{
-    background-image: linear-gradient(225deg,#00c500 50%, #52b152 50%);
-}
-
-#labelMedium{
     background-image: linear-gradient(225deg,#005cc5 50%, #5257b1 50%);
 }
 
+#labelMedium{
+    background-image: linear-gradient(225deg,#00c500 50%, #52b152 50%);
+}
+
 #labelHard{
-    background-image: linear-gradient(225deg,#c50000 50%, #b15252 50%);
+    background-image: linear-gradient(225deg,#cfe100 50%, #b1b152 50%);
 }
 
 #labelExtreme{
-    background-image: linear-gradient(225deg,#b5c500 50%, #b1b152 50%);
+    background-image: linear-gradient(225deg,#c50000 50%, #b15252 50%);
 }
 
 #imageLabelEasy{
@@ -152,19 +168,19 @@ main section{
 }
 
 #modeEasy:checked ~#labelEasy{
-    box-shadow:0px 0px 15px #00c500a8;
-}
-
-#modeMedium:checked ~#labelMedium{
     box-shadow:0px 0px 15px #0014c5a8;
 }
 
+#modeMedium:checked ~#labelMedium{
+    box-shadow:0px 0px 15px #00c500a8;
+}
+
 #modeHard:checked ~#labelHard{
-    box-shadow:0px 0px 15px #c50000a8;
+    box-shadow:0px 0px 15px #b5c500a8;
 }
 
 #modeExtreme:checked ~#labelExtreme{
-    box-shadow:0px 0px 15px #b5c500a8;
+    box-shadow:0px 0px 15px #c50000a8;
 }
 
 .modeQuiz:hover,.modeQuiz:focus{
@@ -197,7 +213,6 @@ footer{
 
 #startBtn{
     padding: 16px;
-    /* width: 180px; */
     width: 100%;
     border-radius: 8px;
     border: none;
@@ -221,3 +236,4 @@ footer{
 #resultSection{
     display: none;
 }
+
