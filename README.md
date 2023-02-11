@@ -1,4 +1,4 @@
-<a href="ttps://lucascmo8.github.io/Quiz-and-answers/" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+<a href="https://lucascmo8.github.io/Quiz-and-answers/" target="_blank" rel="noopener noreferrer">Ver projeto</a>
 # Quiz-and-answers
 Projeto com alguns quiz sobre curiosidades do mundo
 
