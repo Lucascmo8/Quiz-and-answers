@@ -17,7 +17,7 @@ header{
     background-color: rgb(19, 12, 87);
     color: #fff;
 
-    width: 100%;
+    width: 100vw;
     padding: 16px 32px;
     
     position: fixed;
