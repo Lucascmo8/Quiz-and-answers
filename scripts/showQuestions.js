@@ -113,17 +113,24 @@ async function showQuestions() {
 }
 
 function showAnimationHomePage(){
+    let corpo = document.body
+    corpo.style.overflow = "hidden"
     homePage.classList.add("animate__animated")
     homePage.classList.add("animate__backOutDown")
+
 }
 
 function removeHomePage(){
     homePage.classList.remove("animate__animated")
     homePage.classList.remove("animate__backOutDown")
     homePage.style.display = "none"
+    let corpo = document.body
+    corpo.style.overflow = "visible"
 }
 
 function showQuizSection(){
+    let corpo = document.body
+    corpo.style.overflow = "hidden"
     quizSection.style.display = "flex"
     quizSection.classList.add("animate__animated")
     quizSection.classList.add("animate__backInRight")
@@ -133,6 +140,8 @@ function removeQuizSection(){
     quizSection.style.display = "none"
     quizSection.classList.remove("animate__animated")
     quizSection.classList.remove("animate__backInRight")
+    let corpo = document.body
+    corpo.style.overflow = "visible"
 }
 
 export {

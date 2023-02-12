@@ -38,7 +38,7 @@ header button{
 main{
     display: flex;
     padding: 16px;
-    width: 98vw;
+    width: 97vw;
     box-sizing: border-box;
     /* margin-bottom: 66px; */
     justify-content: space-between;

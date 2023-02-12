@@ -66,6 +66,12 @@
     box-sizing: border-box;
 }
 
+#questionsSection .optionQuiz > p {
+    text-align: left;
+    margin-left: 16px;
+    height: 100%;
+}
+
 #questionsSection .optionQuiz div{
     background-color:#00c500;
     width: 20%;
@@ -90,6 +96,7 @@
     box-sizing: border-box;
     align-self: center;
     border-radius: 10px;
+    border: none;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
     text-shadow: 1px 0px 2px rgba(0, 0, 0, 0.4);
 }
@@ -108,3 +115,4 @@
     color: #000;
     transform: scale(1.08);
 }
+
