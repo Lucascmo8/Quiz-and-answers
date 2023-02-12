@@ -30,12 +30,18 @@ import {
     showResult
 } from "./showResult.js"
 
+import { stopTimer } from "./timer.js"
+
 function nextQuestion() {
+
     if (currentQuestion < amountOfQuestions) {
         currentQuestion++
     }
     if(currentQuestion == amountOfQuestions){
         showResult()
+    }
+    if(useTimer == true){
+        stopTimer()
     }
 }
 
@@ -65,6 +71,9 @@ async function shuffleAnswer() {
     scrambledAnswers = answers
 }
 
+import { timer } from "./timer.js"
+let timerText = undefined
+
 async function showQuestions() {
     showAnimationHomePage()
 
@@ -76,7 +85,9 @@ async function showQuestions() {
     if (currentQuestion < amountOfQuestions) {
         shuffleAnswer()
         quizSection.innerHTML = `
-            <h3>Question ${currentQuestion + 1}</h3>
+            <article id="questionAndTimer">
+                <h3>Question ${currentQuestion + 1}</h3><p id="timerText">∞S</p>
+            </article>
             <div>
                 <h4>${quiz[currentQuestion].question}</h4>
                 
@@ -95,11 +106,19 @@ async function showQuestions() {
 
                     <input type="radio" name="options" id="option4" value="${scrambledAnswers[3]}" class="radioOptionsQuiz">
                     <label for="option4" class="optionQuiz" id="labelOption4"><div><p>4</p></div><p class="textAnswers">${scrambledAnswers[3]}</p></label>
+                    
+                    <input type="radio" name="options" id="option5" value="none" class="radioOptionsQuiz" ${check}>
                 </div>    
             </div>
             <button id="nextBtn">Next</button>` 
     }
-
+    timerText = await document.getElementById("timerText")
+    if(useTimer == true){
+        var check = `checked`
+        timer()
+    }else{
+        var check = ``
+    }
     let nextBtn = await document.getElementById("nextBtn")
     nextBtn.addEventListener("click", function () {
         let answerOptionChecked = document.querySelector("input[name='options']:checked")
@@ -150,5 +169,7 @@ export {
     currentQuestion,
     amountOfQuestions,
     quizSection,
-    homePage
+    homePage,
+    timerText,
+    nextQuestion
 }

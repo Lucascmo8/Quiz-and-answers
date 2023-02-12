@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/mobile.css">
     <link rel="stylesheet" href="styles/sectionQuiz.css">
+    <link rel="stylesheet" href="styles/sectionResult.css">
+    <link rel="stylesheet" href="styles/lightMode.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
     <title>Quiz and Answers</title>
@@ -14,11 +16,11 @@
 <body>
     <header id="header">
         <h1>Quiz and Answers</h1>
-        <button>Dark Mode</button>
+        <button id="toggleModeThemeBtn">Light Mode</button>
     </header>
     <main id="home">
 
-        <article>
+        <article id="chosseAndStart">
             <h2>Choose a quiz</h2>
             <p>choose one of the four quizzes and click start quiz</p>
             <button id="startBtn">Start Quiz</button>
@@ -97,6 +99,7 @@
     <script src="scripts/selectMode.js" type="module"></script>
     <script src="scripts/showQuestions.js" type="module"></script>
     <script src="scripts/showResult.js" type="module"></script>
-    
+    <script src="scripts/toggleModeTheme.js"></script>
+    <script src="scripts/timer.js" type="module"></script>
 </body>
 </html>

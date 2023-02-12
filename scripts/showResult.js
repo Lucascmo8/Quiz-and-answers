@@ -4,6 +4,7 @@ import { amountOfQuestions } from "./showQuestions.js"
 import { quizSection } from "./showQuestions.js"
 import { homePage } from "./showQuestions.js"
 import { cleanQuiz } from "./cleanQuiz.js"
+import { modeSelected } from "./selectMode.js"
 let resultSection = document.getElementById("resultSection")
 
 let answersCorrect = 0
@@ -14,16 +15,31 @@ async function correctCounter(valor){
         console.log(answersCorrect)
     }
 }
+let categoryMode = `General Knowgledge`
+
+async function categoryQuiz(){
+    if(modeSelected == "modeExtreme"){
+        categoryMode = `General Knowgledge`
+    }else if(modeSelected == "modeHard"){
+        categoryMode = `History`
+    }else if(modeSelected == "modeMedium"){
+        categoryMode = `Film, Tv and Music`
+    }else{
+        categoryMode = `Geography`
+    }
+}
 
 async function showResult(){
     quizSection.style.display = "none"
-    resultSection.style.display = "flex"
+
+    showResulSection()
+    categoryQuiz()
     resultSection.innerHTML = `
-    <div>
-        <h3>Congratulation</h3>
-        <p>Category: ALL</p>
+    <div id="congratulationText">
+        <h3>Congratulation!</h3>
+        <p>Category: ${categoryMode} </p>
         <p>
-        you answered <span>${answersCorrect} / ${amountOfQuestions}</span>
+        you answered <br><span>${answersCorrect} / ${amountOfQuestions}</span><br>
         question correct
         </p>
     </div>
@@ -32,10 +48,29 @@ async function showResult(){
     let backBtn = await document.getElementById("backBtn")
     backBtn.addEventListener("click",function(){
         answersCorrect = 0
-        resultSection.style.display = "none"
-        homePage.style.display = "flex"
+        removeResulSection()
+        setTimeout(removeResulSection,1000)
+        setTimeout(function(){
+            homePage.style.display = "flex"
+        },100)
         cleanQuiz()
     })
 }
 
-export {correctCounter,showResult,answersCorrect}
+function showResulSection(){
+    resultSection.style.display = "flex"
+    let corpo = document.body
+    corpo.style.overflow = "hidden"
+    resultSection.classList.add("animate__animated")
+    resultSection.classList.add("animate__bounceInDown")
+}
+
+function removeResulSection(){
+    resultSection.classList.remove("animate__animated")
+    resultSection.classList.remove("animate__bounceInDown")
+    resultSection.style.display = "none"
+    let corpo = document.body
+    corpo.style.overflow = "visible"
+}
+
+export {correctCounter,showResult,answersCorrect,categoryQuiz}
